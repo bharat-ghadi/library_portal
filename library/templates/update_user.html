@@ -1,0 +1,58 @@
+{% extends 'index.html'  %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <h4 class="container text-center"> Edit User </h4>
+    <div class="container ">
+        <form action="update_user/{{ user.id }}" method="post">
+            {% csrf_token%}
+            <div class="container px-4">
+                <div class="row gx-5">
+                    <div class="col">
+                        <div class="p-3"><label for="fname" class="form-label">First Name</label>
+                            <input id="fname" name="fname" value="{{user.fname}}" class="form-control">
+
+                            <label for="lname" class="form-label">Last Name</label>
+                            <input id="lname" name="lname" value="{{user.lname}}" class="form-control"></div>
+                        <label class="form-label">Membership Status</label>
+                        &nbsp &nbsp &nbsp &nbsp
+
+                        <input type="radio" id='Active' class="btn-check" name="membership" value='Active'>
+                        <label class="btn btn-outline-success" for='Active'>Active</label> &nbsp
+
+                        <input type="radio" id="Expired" class="btn-check" name="membership" value="Expired">
+                        <label class="btn btn-outline-danger" for="Expired">Expired</label>
+                        <br><br>
+
+
+                        <button type="submit" class="btn btn-secondary"> Submit</button>
+
+
+                    </div>
+                    <div class="col">
+                        <div class="p-3">
+                            <label for="contact" class="form-label">Contact</label>
+                            <input id="contact" name="contact" value="{{user.contact}}" class="form-control">
+
+                            <label for="address" class="form-label">Address</label>
+                            <input id="address" name="address" value="{{user.address}}" class="form-control">
+
+                            <br>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <br>
+
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

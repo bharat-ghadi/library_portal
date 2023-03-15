@@ -1,0 +1,88 @@
+{% extends 'index.html'  %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="container"><h3>{{message}}</h3></div>
+
+    <br>
+    <h4 class="container text-center"> Add New Records </h4>
+    <div class="container ">
+        <form action="" method="post">
+            {% csrf_token%}
+
+            <div class="container px-4 text-center">
+                <div class="row gx-5">
+                    <div class="col">
+                        <div class="p-3">
+                            <label for="user" class="form-label">User Id</label>
+                            <input id="user" name="user" value="{{user}}" class="form-control">
+
+                            <label for="book" class="form-label">Book Id</label>
+                            <input id="book" name="book" value="{{book}}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3"><label for="dt_taken" class="form-label">Date taken:</label>
+                            <input id="dt_taken" type="date" name="dt_taken" value="{{dt_taken}}" class="form-control">
+
+
+                            <label for="dt_returned" class="form-label">Date returned:</label>
+                            <input id="dt_returned" type="date" name="dt_returned" value="{{dt_returned}}"
+                                   class="form-control"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <br>
+
+            <button type="submit" class="btn btn-secondary"> Submit</button>
+
+
+        </form>
+    </div>
+
+    <br><br>
+
+    <div class="container-fluid">
+        <h4 class="container text-center"> All Records Details </h4>
+        <form action="" method="get">
+            {% csrf_token%}
+
+            <div class="container">
+                <table class="table table-success table-striped table-hover">
+                    <thead class="table-dark">
+                    <tr>
+                        <!--                <th scope="col">Sr. No.</th>-->
+                        <th scope="col">User</th>
+                        <th scope="col">Book</th>
+                        <th scope="col">Date Taken</th>
+                        <th scope="col">Date returned</th>
+                        <th scope="col">Book Returned</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+
+                    {% for entry in entries %}
+                    <tr>
+                        <!--                <th scope="row">row=row+1</th>-->
+                        <td>{{entry.user}}</td>
+                        <td>{{entry.book}}</td>
+                        <td>{{entry.dt_taken}}</td>
+                        <td>{{entry.dt_returned}}</td>
+                        <td>{{entry.bk_status}}</td>
+
+
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br><br>
+{% endblock %}

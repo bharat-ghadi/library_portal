@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block content %}
+{{message}}
+<div class="dropdown container text-center">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Users To be Removed
+    </button>
+
+    <ul class="dropdown-menu">
+        {% for user in users%}
+        <li><a class="dropdown-item" href="/remove_user/{{user.id}}">{{user.id}} {{user.fname}} {{user.lname}} </a></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock %}

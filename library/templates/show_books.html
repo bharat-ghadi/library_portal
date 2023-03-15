@@ -1,0 +1,43 @@
+{% extends 'index.html'  %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    <h4 class="container text-center"> Book Inventory Details </h4>
+    <form action="" method="get">
+        {% csrf_token%}
+
+        <div class="container">
+            <table class="table table-success table-striped table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <!--                <th scope="col">Sr. No.</th>-->
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Publication</th>
+                    <th scope="col">Genre</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+
+                {% for books in all_books %}
+                <tr>
+                    <!--                <th scope="row">row=row+1</th>-->
+                    <td>{{books.bk_name}}</td>
+                    <td>{{books.author}}</td>
+                    <td>{{books.price}}</td>
+                    <td>{{books.publication}}</td>
+                    <td>{{books.genre}}</td>
+
+
+                </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+    </form>
+</div>
+{% endblock %}

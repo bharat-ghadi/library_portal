@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-bs-theme="primary">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'library/css/style.css' %}">
+</head>
+<body class="other">
+
+<nav class="navbar navbar-expand-lg sticky-top bg-dark " data-bs-theme="dark">
+    <div class="container-fluid ">
+        <a class="navbar-brand" href="#">Library Management System</a>
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="navbar-brand disabled me-5" href="#"> </a>
+
+<!--                <a class="nav-link btn btn-outline-success me-2" href="/show_books" role="button">Show Books</a>-->
+                <a class="nav-link btn btn-outline-success me-2" href="/add_book" role="button">Books Page</a>
+<!--                <a class="nav-link btn btn-outline-success me-2" href="/show_users" role="button">Show users</a>-->
+                <a class="nav-link btn btn-outline-success me-2" href="/add_user" role="button">User Details</a>
+<!--                <a class="nav-link btn btn-outline-success me-2" href="/records" role="button">Entry Of records</a>-->
+                <a class="nav-link btn btn-outline-success me-2" href="/add_record" role="button">Records</a>
+                <a class="nav-link btn btn-outline-success me-2" href="/show_genres" role="button">Genre Data</a>
+<!--                <a class="nav-link btn btn-outline-success me-2" href="/remove_user" role="button">Remove User</a>-->
+<!--                <a class="nav-link btn btn-outline-success me-2" href="/update_user" role="button">Update User</a>-->
+
+            </div>
+        </div>
+    </div>
+</nav>
+<br><br>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+<div class="other">
+    {% block content%}
+    {% endblock %}
+</div>
+</body>
+</html>

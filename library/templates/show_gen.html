@@ -1,0 +1,58 @@
+{% extends 'index.html'  %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Add genres</h1>
+    <div class=" container-fluid">
+        <h4 class="container text-center"> Add New Genre </h4>
+        <div class="container ">
+            <form action="" method="post">
+                {% csrf_token%}
+                <label for="genre" class="form-label">Genre category</label>
+                <input id="genre" name="genre" value="{{genre}}" class="form-control">
+                <br>
+
+                <button type="submit" class="btn btn-secondary"> Submit</button>
+
+            </form>
+        </div>
+    </div>
+    <br><br>
+    <h5>{{ message }}</h5>
+    <br>
+    <h1> Show Genres </h1>
+
+    <div class="container-fluid">
+        <h4 class="container text-center"> Genre data </h4>
+        <form action="" method="get">
+            {% csrf_token%}
+
+            <div class="container">
+                <table class="table table-success table-striped table-hover">
+                    <thead class="table-dark">
+                    <tr>
+                        <!--                <th scope="col">Sr. No.</th>-->
+                        <th scope="col">Genre Cat</th>
+
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+
+                    {% for gen in all_genres %}
+                    <tr>
+                        <!--                <th scope="row">row=row+1</th>-->
+                        <td>{{gen.genre}}</td>
+
+
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+            </div>
+        </form>
+        <br><br>
+    </div>
+</div>
+{% endblock %}

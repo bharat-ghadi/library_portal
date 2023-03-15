@@ -1,0 +1,45 @@
+{% extends 'index.html'  %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    <h4 class="container text-center"> Book Inventory Details </h4>
+    <form action="" method="get">
+        {% csrf_token%}
+
+        <div class="container">
+            <table class="table table-success table-striped table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <!--                <th scope="col">Sr. No.</th>-->
+                    <th scope="col">User</th>
+                    <th scope="col">Book</th>
+                    <th scope="col">Date Taken</th>
+                    <th scope="col">Date returned</th>
+                    <th scope="col">Book Returned</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+
+                {% for entry in entries %}
+                <tr>
+                    <!--                <th scope="row">row=row+1</th>-->
+                    <td>{{entry.user}}</td>
+                    <td>{{entry.book}}</td>
+                    <td>{{entry.dt_taken}}</td>
+                    <td>
+                        {{entry.dt_returned}}
+                    </td>
+                    <td>{{entry.bk_status}}</td>
+
+
+                </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+    </form>
+</div>
+{% endblock %}
