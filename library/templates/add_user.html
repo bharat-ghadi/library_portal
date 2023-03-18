@@ -66,6 +66,7 @@
                 <thead class="table-dark">
                 <tr>
                     <!--                <th scope="col">Sr. No.</th>-->
+                    <th scope="col">ID</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Mobile</th>
@@ -81,6 +82,7 @@
                 {% for user in all_users %}
                 <tr>
                     <!--                <th scope="row">row=row+1</th>-->
+                    <td>{{user.id}}</td>
                     <td>{{user.fname}}</td>
                     <td>{{user.lname}}</td>
                     <td>{{user.contact}}</td>

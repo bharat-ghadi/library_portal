@@ -28,11 +28,12 @@
         <form action="" method="get">
             {% csrf_token%}
 
-            <div class="container">
+            <div class="container text-centre">
                 <table class="table table-success table-striped table-hover">
                     <thead class="table-dark">
                     <tr>
                         <!--                <th scope="col">Sr. No.</th>-->
+                        <th scope="col">Genre ID</th>
                         <th scope="col">Genre Cat</th>
 
                     </tr>
@@ -42,6 +43,7 @@
                     {% for gen in all_genres %}
                     <tr>
                         <!--                <th scope="row">row=row+1</th>-->
+                        <td>{{gen.id}}</td>
                         <td>{{gen.genre}}</td>
 
 

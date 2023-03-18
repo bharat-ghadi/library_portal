@@ -1,5 +1,5 @@
 from django.db import models
-import uuid
+# import uuid
 
 
 # Create your models here.
@@ -48,7 +48,7 @@ class UserData(models.Model):
 
 
 class Workspace(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(UserData, on_delete=models.CASCADE)
     book = models.ForeignKey(BookData, on_delete=models.CASCADE)
     dt_taken = models.DateField()

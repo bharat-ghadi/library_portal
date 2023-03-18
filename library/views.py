@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import BookData, UserData, Workspace, Genre
 from django.template import loader
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 
 
 # Create your views here.
@@ -203,3 +204,44 @@ def add_record(request):
     else:
         message = "Exception has occurred"
         return render(request, 'add_record.html', {'message': message})
+
+
+def remove_record(request, record_id=0):
+    if record_id:
+        try:
+            record_to_be_removed = Workspace.objects.get(id=record_id)
+            record_to_be_removed.delete()
+            print(record_to_be_removed)
+            entries = Workspace.objects.all()
+            message = "Record removal successful"
+            return render(request, 'add_records.html', {'message': message, 'entries': entries})
+
+        except:
+            entries = Workspace.objects.all()
+            message = "Record removal Unsuccessful"
+            return render(request, 'add_records.html', {'message': message, 'entries': entries})
+    entries = Workspace.objects.all()
+    return render(request, 'add_records.html', {'entries': entries})
+
+
+def update_record(request, record_id=0):
+    record = Workspace.objects.get(id=record_id)
+    template = loader.get_template('update_record.html')
+    context = {"record": record}
+
+    return HttpResponse(template.render(context, request))
+
+
+def updaterecord(request, record_id=0):
+    user = request.POST['user']
+    book = request.POST['book']
+    dt_taken = request.POST['dt_taken']
+    dt_returned = request.POST['dt_returned']
+
+    record = Workspace.objects.get(id=record_id)
+    record.firstname = user
+    record.lastname = book
+    record.dt_taken = dt_taken
+    record.dt_returned = dt_returned
+    record.save()
+    return HttpResponseRedirect(reverse('index'))

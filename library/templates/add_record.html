@@ -55,11 +55,14 @@
                     <thead class="table-dark">
                     <tr>
                         <!--                <th scope="col">Sr. No.</th>-->
+                        <th scope="col">ID</th>
                         <th scope="col">User</th>
                         <th scope="col">Book</th>
                         <th scope="col">Date Taken</th>
                         <th scope="col">Date returned</th>
                         <th scope="col">Book Returned</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                     </thead>
                     <tbody class="table-group-divider">
@@ -67,11 +70,20 @@
                     {% for entry in entries %}
                     <tr>
                         <!--                <th scope="row">row=row+1</th>-->
+                        <td>{{entry.id}}</td>
                         <td>{{entry.user}}</td>
                         <td>{{entry.book}}</td>
                         <td>{{entry.dt_taken}}</td>
                         <td>{{entry.dt_returned}}</td>
                         <td>{{entry.bk_status}}</td>
+                        <td>
+
+                        <a href="update_record/{{entry.id}}" class="link-success">Edit</a>
+                    </td>
+                    <td>
+
+                        <a href="remove_record/{{entry.id}}" class="link-danger">Delete</a>
+                    </td>
 
 
                     </tr>
