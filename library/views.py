@@ -80,6 +80,7 @@ def add_gen(request):
 def show_users(request):
     all_users = UserData.objects.all()
 
+
     return render(request, 'show_users.html', {'all_users': all_users})
 
 
