@@ -81,6 +81,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'database_taskmgr',
+        'USER': 'my_superuser',
+        'PASSWORD': 'my_superuser',
+        'HOST': 'taskmgr1db.c6dxglebezmn.us-west-2.rds.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
