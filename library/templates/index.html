@@ -44,8 +44,10 @@
 
             <h6 class="header"
                 style="text-align: center; color:aliceblue;; background-color:black ; opacity: .80;padding: 10px ;">
-                <p> Note:  Several data has foreign key constraint, which will show error if records not found. Example of that will be adding genre in book page.
-                    To assign genre with books you need to enter genre id. I am working on this issue. Project is in early stages. I would gladly accept your help. Thank you. </p>
+                <p> Note: Several data has foreign key constraint, which will show error if records not found. Example
+                    of that will be adding genre in book page.
+                    To assign genre with books you need to enter genre id. I am working on this issue. Project is in
+                    early stages. I would gladly accept your help. Thank you. </p>
                 <p> I have kept Debug = True intentionally so you can understand whats actually going on.</p>
             </h6>
 
@@ -57,8 +59,14 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 <div class="other">
-    {% block content%}
-    {% endblock %}
+
+    <div class="container">
+
+        {% block content%}
+        {% endblock %}
+
+    </div>
+
 </div>
 </body>
 </html>

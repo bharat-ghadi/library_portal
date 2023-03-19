@@ -80,7 +80,6 @@ def add_gen(request):
 def show_users(request):
     all_users = UserData.objects.all()
 
-
     return render(request, 'show_users.html', {'all_users': all_users})
 
 
@@ -88,7 +87,16 @@ def add_user(request):
     if request.method == 'POST':
         fname = request.POST['fname']
         lname = request.POST['lname']
-        contact = int(request.POST['contact'])
+        contact = request.POST['contact']
+
+        def clean_contact(contact):
+            if contact == "":
+                contact = 0
+                return int(contact)
+            else:
+                return int(contact)
+
+        price = clean_contact(contact)
         address = request.POST['address']
         membership = request.POST['membership']
 
