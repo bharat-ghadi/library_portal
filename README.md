@@ -10,8 +10,6 @@
 - Showing records to user using context in views.py
 - Routing of URL's using urls.py 
 
- My Project is live on : https://library-portal-nine.vercel.app/
-
 ## Run Locally
 
 - You can check out this project in your system by cloning the project in your system. 
